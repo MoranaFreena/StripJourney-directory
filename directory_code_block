@@ -61,7 +61,7 @@
                 city: "Palm Springs",
                 country: "USA",
                 style: "Floorwork, Frame Up",
-                socialMedia: "https://instagram.com/lesupova_dance",
+                IG: "https://instagram.com/lesupova_dance",
                 coordinates: [33.8246269, -116.540303],
                 website: "https://lesupovadance.thinkific.com/",
                 episode: { number: "01", link: "https://www.stripjourney.com/episodes/interview-ellena-smith-99sy4-4zj89" }
@@ -71,7 +71,7 @@
                 city: "Prague",
                 country: "Czech Republic",
                 style: "Pole Dance, Frame Up",
-                socialMedia: "https://www.instagram.com/stories/_d_e_motion",
+                IG: "https://www.instagram.com/stories/_d_e_motion",
                 coordinates: [50.0596288, 14.4464593],
                 episode: { number: "02", link: "https://www.stripjourney.com/episodes/interview-deny-grigorik" }
             },
@@ -80,7 +80,7 @@
                 city: "London",
                 country: "UK",
                 style: "Frame Up, High heels",
-                socialMedia: "https://www.instagram.com/stories/nastish_vlasova",
+                IG: "https://www.instagram.com/stories/nastish_vlasova",
                 coordinates: [51.4893335, -0.1440551],
                 website: "https://www.frame-up.uk/",
                 episode: { number: "03", link: "https://www.stripjourney.com/episodes/interview-anastasia-vlasova" }
@@ -90,8 +90,8 @@
                 city: "Prague",
                 country: "Czech Republic",
                 style: "Frame Up",
-                socialMedia: "https://www.instagram.com/eve_archarly",
-                coordinates: [50.0596288, 12.4464593],
+                IG: "https://www.instagram.com/eve_archarly",
+                coordinates: [50.04794575590786,14.442632996169568],
                 episode: { number: "04", link: "https://www.stripjourney.com/episodes/interview-eve" }
             },
 {
@@ -99,7 +99,7 @@
                 city: "Dusseldorf",
                 country: "Germany",
                 style: "Pole dance, Frame Up, High heels",
-                socialMedia: "https://www.instagram.com/daring.daria",
+                IG: "https://www.instagram.com/daring.daria",
                 coordinates: [51.2254018, 6.7763137],
                 episode: { number: "05", link: "https://www.stripjourney.com/episodes/interview-daria" }
             },
@@ -108,7 +108,7 @@
                 city: "Amsterdam",
                 country: "The Netherlands",
                 style: "Frame Up",
-                socialMedia: "https://www.instagram.com/ness_lynx",
+                IG: "https://www.instagram.com/ness_lynx",
                 coordinates: [52.3730796,4.8924534],
                 episode: { number: "06", link: "https://www.stripjourney.com/episodes/interview-anastasia-amsterdam" }
             },
@@ -117,7 +117,7 @@
                 city: "Hamburg",
                 country: "Germany",
                 style: "High heels, Frame Up",
-                socialMedia: "https://instagram.com/vladakosha",
+                IG: "https://instagram.com/vladakosha",
                 coordinates: [53.550341, 10.000654],
                 website: "https://www.eversports.de/s/hheels",
                 episode: { number: "07", link: "https://www.stripjourney.com/episodes/interview-vlada-kosha" }
@@ -127,7 +127,7 @@
                 city: "Buenos Aires",
                 country: "Argentina",
                 style: "Pole dance, Frame Up",
-                socialMedia: "https://www.instagram.com/liclaudine",
+                IG: "https://www.instagram.com/liclaudine",
                 coordinates: [-34.6083696,-58.4440583],
                 episode: { number: "08", link: "https://www.stripjourney.com/episodes/interview-lily" }
             },
@@ -136,7 +136,7 @@
                 city: "Hannover",
                 country: "Germany",
                 style: "Strip",
-                socialMedia: "https://www.instagram.com/ad_makovskaya",
+                IG: "https://www.instagram.com/ad_makovskaya",
                 coordinates: [52.3744779,9.7385532],
                 episode: { number: "09", link: "https://www.stripjourney.com/episodes/interview-alina-makovska" }
             },
@@ -145,7 +145,7 @@
                 city: "Lisabon",
                 country: "Portugal",
                 style: "High heels, Frame Up",
-                socialMedia: "https://www.instagram.com/levenson.anastasia",
+                IG: "https://www.instagram.com/levenson.anastasia",
                 coordinates: [38.7077507,-9.1365919],
                  website: "https://lvnsn.art/",
                 episode: { number: "10", link: "https://www.stripjourney.com/episodes/interview-anastasia-levenson" }
@@ -155,7 +155,7 @@
                 city: "Dresden",
                 country: "Germany",
                 style: "Ballet, Frame Up",
-                socialMedia: "https://www.instagram.com/suspiria.em/",
+                IG: "https://www.instagram.com/suspiria.em/",
                 coordinates: [51.0493286,13.7381437],
                 episode: { number: "11", link: "https://www.stripjourney.com/episodes/interview-eva-marta" }
             },
@@ -164,7 +164,7 @@
                 city: "Braunschweig",
                 country: "Germany",
                 style: "High heels, Frame Up",
-                socialMedia: "https://www.instagram.com/kaz.irk",
+                IG: "https://www.instagram.com/kaz.irk",
                 coordinates: [52.2646577,10.5236066],
                 episode: { number: "12", link: "https://www.stripjourney.com/episodes/interview-irina" }
             },
@@ -173,7 +173,7 @@
                 city: "Bali",
                 country: "Indonesia",
                 style: "Floorwork acrobatics",
-                socialMedia: "https://www.instagram.com/morella.dance",
+                IG: "https://www.instagram.com/morella.dance",
                 coordinates: [-8.2271303,115.1919203],
                 episode: { number: "13", link: "https://www.stripjourney.com/episodes/interview-randa" }
             },
@@ -182,7 +182,7 @@
                 city: "New Jersey",
                 country: "USA",
                 style: "Frame Up",
-                socialMedia: "https://www.instagram.com/tanya_phoenix",
+                IG: "https://www.instagram.com/tanya_phoenix",
                 coordinates: [40.0757384,-74.4041622],
                 episode: { number: "14", link: "https://www.stripjourney.com/episodes/interview-tanya" }
             }
@@ -204,7 +204,7 @@
                 ${teacher.city}, ${teacher.country}<br>
                 Style: ${teacher.style}<br>
                 ${teacher.website ? `<a href="${teacher.website}" target="_blank" class="website-link">Website</a><br>` : ''}
-                <a href="${teacher.socialMedia}" target="_blank" class="social-link">Social Media</a><br>
+                <a href="${teacher.IG}" target="_blank" class="social-link">Social Media</a><br>
                 ${teacher.episode ? `<a href="${teacher.episode.link}" target="_blank" class="episode-link">Strip Journey Episode ${teacher.episode.number}</a>` : ''}
             `);
         });
@@ -220,7 +220,7 @@
                 <p><strong>Country:</strong> ${teacher.country}</p>
                 <p><strong>Style:</strong> ${teacher.style}</p>
                 ${teacher.website ? `<p><a href="${teacher.website}" target="_blank" class="website-link">Website</a></p>` : ''}
-                <p><a href="${teacher.socialMedia}" target="_blank" class="social-link">Social Media</a></p>
+                <p><a href="${teacher.IG}" target="_blank" class="social-link">Social Media</a></p>
                 ${teacher.episode ? `<p><a href="${teacher.episode.link}" target="_blank" class="episode-link">Strip Journey Episode ${teacher.episode.number}</a></p>` : ''}
             `;
             teacherCards.appendChild(card);
