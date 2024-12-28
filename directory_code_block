@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Teacher Directory</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        .teacher-list {
+            margin: 20px;
+        }
+        .teacher-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .teacher-card h3 {
+            margin: 0 0 5px 0;
+        }
+        .teacher-card p {
+            margin: 5px 0;
+        }
+        .social-link {
+            color: blue;
+            text-decoration: none;
+        }
+        .website-link {
+            color: green;
+            text-decoration: none;
+        }
+        .episode-link {
+            color: purple;
+            text-decoration: none;
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <h1 style="text-align:center;">Dance Teacher Directory</h1>
+    <div id="map"></div>
+    <div class="teacher-list">
+        <h2>Teachers</h2>
+        <div id="teacher-cards"></div>
+    </div>
+
+    <script>
+        // Teacher data
+        const teachers = [
+            {
+                name: "Elena Smith",
+                city: "Palm Springs",
+                country: "USA",
+                style: "Floorwork, Frame Up",
+                socialMedia: "https://instagram.com/lesupova_dance",
+                coordinates: [37.27, -119.300],
+                website: "https://lesupovadance.thinkific.com/",
+                episode: { number: "01", link: "https://stripjourney.com/episode1" }
+            },
+            {
+                name: "Vlada Kosha",
+                city: "Hamburg",
+                country: "Germany",
+                style: "high heels, Frame Up",
+                socialMedia: "https://instagram.com/vladakosha",
+                coordinates: [53.550341, 10.000654],
+                website: "https://www.eversports.de/s/hheels",
+                episode: { number: "07", link: "https://stripjourney.com/episode7" }
+            }
+        ];
+
+        // Initialize map
+        const map = L.map('map').setView([20, 0], 2);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
+
+        // Add teacher markers to map
+        teachers.forEach(teacher => {
+            const marker = L.marker(teacher.coordinates).addTo(map);
+            marker.bindPopup(`
+                <strong>${teacher.name}</strong><br>
+                ${teacher.city}, ${teacher.country}<br>
+                Style: ${teacher.style}<br>
+                ${teacher.website ? `<a href="${teacher.website}" target="_blank" class="website-link">Website</a><br>` : ''}
+                <a href="${teacher.socialMedia}" target="_blank" class="social-link">Social Media</a><br>
+                ${teacher.episode ? `<a href="${teacher.episode.link}" target="_blank" class="episode-link">Strip Journey Episode ${teacher.episode.number}</a>` : ''}
+            `);
+        });
+
+        // Populate teacher list
+        const teacherCards = document.getElementById('teacher-cards');
+        teachers.forEach(teacher => {
+            const card = document.createElement('div');
+            card.className = 'teacher-card';
+            card.innerHTML = `
+                <h3>${teacher.name}</h3>
+                <p><strong>City:</strong> ${teacher.city}</p>
+                <p><strong>Country:</strong> ${teacher.country}</p>
+                <p><strong>Style:</strong> ${teacher.style}</p>
+                ${teacher.website ? `<p><a href="${teacher.website}" target="_blank" class="website-link">Website</a></p>` : ''}
+                <p><a href="${teacher.socialMedia}" target="_blank" class="social-link">Social Media</a></p>
+                ${teacher.episode ? `<p><a href="${teacher.episode.link}" target="_blank" class="episode-link">Strip Journey Episode ${teacher.episode.number}</a></p>` : ''}
+            `;
+            teacherCards.appendChild(card);
+        });
+    </script>
+</body>
+</html>
