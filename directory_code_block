@@ -62,20 +62,88 @@
                 country: "USA",
                 style: "Floorwork, Frame Up",
                 socialMedia: "https://instagram.com/lesupova_dance",
+                coordinates: [33.8246269, -116.540303],
+                website: "https://lesupovadance.thinkific.com/",
+                episode: { number: "01", link: "https://www.stripjourney.com/episodes/interview-ellena-smith-99sy4-4zj89" }
+            },
+{
+                name: "Deny Grigorik",
+                city: "Prague",
+                country: "Czech Republic",
+                style: "Pole Dance, Frame Up",
+                socialMedia: "https://www.instagram.com/stories/_d_e_motion",
+                coordinates: [50.0596288, 14.4464593],
+                episode: { number: "02", link: "https://www.stripjourney.com/episodes/interview-deny-grigorik" }
+            },
+{
+                name: "Anastasia Vlasova",
+                city: "London",
+                country: "UK",
+                style: "Frame Up, High heels",
+                socialMedia: "https://www.instagram.com/stories/nastish_vlasova",
+                coordinates: [51.4893335, -0.1440551],
+                website: "https://www.frame-up.uk/",
+                episode: { number: "03", link: "https://www.stripjourney.com/episodes/interview-anastasia-vlasova" }
+            },
+{
+                name: "Eve",
+                city: "Prague",
+                country: "Czech Republic",
+                style: "Frame Up",
+                socialMedia: "https://www.instagram.com/eve_archarly",
+                coordinates: [50.0596288, 12.4464593],
+                episode: { number: "04", link: "https://www.stripjourney.com/episodes/interview-eve" }
+            },
+{
+                name: "Daria",
+                city: "Dusseldorf",
+                country: "Germany",
+                style: "Pole dance, Frame Up, High heels",
+                socialMedia: "https://www.instagram.com/daring.daria",
+                coordinates: [51.2254018, 6.7763137],
+                episode: { number: "05", link: "https://www.stripjourney.com/episodes/interview-daria" }
+            },
+{
+                name: "Anastasia",
+                city: "Amsterdam",
+                country: "The Netherlands",
+                style: "Frame Up",
+                socialMedia: "https://www.instagram.com/ness_lynx",
+                coordinates: [52.3730796,4.8924534],
+                episode: { number: "06", link: "https://www.stripjourney.com/episodes/interview-anastasia-amsterdam" }
+            },
+   {
+                name: "Vlada Kosha",
+                city: "Hamburg",
+                country: "Germany",
+                style: "High heels, Frame Up",
+                socialMedia: "https://instagram.com/vladakosha",
+                coordinates: [53.550341, 10.000654],
+                website: "https://www.eversports.de/s/hheels",
+                episode: { number: "07", link: "https://www.stripjourney.com/episodes/interview-vlada-kosha" }
+            },
+{
+                name: "Lily",
+                city: "Buenos Aires",
+                country: "Argentina",
+                style: "Floorwork, Frame Up",
+                socialMedia: "https://instagram.com/lesupova_dance",
+                coordinates: [37.27, -119.300],
+                website: "https://lesupovadance.thinkific.com/",
+                episode: { number: "08", link: "https://www.stripjourney.com/episodes/interview-lily" }
+            },
+{
+                name: "Elena Smith",
+                city: "Palm Springs",
+                country: "USA",
+                style: "Floorwork, Frame Up",
+                socialMedia: "https://instagram.com/lesupova_dance",
                 coordinates: [37.27, -119.300],
                 website: "https://lesupovadance.thinkific.com/",
                 episode: { number: "01", link: "https://stripjourney.com/episode1" }
             },
-            {
-                name: "Vlada Kosha",
-                city: "Hamburg",
-                country: "Germany",
-                style: "high heels, Frame Up",
-                socialMedia: "https://instagram.com/vladakosha",
-                coordinates: [53.550341, 10.000654],
-                website: "https://www.eversports.de/s/hheels",
-                episode: { number: "07", link: "https://stripjourney.com/episode7" }
-            }
+
+         
         ];
 
         // Initialize map
