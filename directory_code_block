@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dance Teacher Directory</title>
+    <title>Strip Journey Directory</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body {
@@ -46,7 +46,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-    <h1 style="text-align:center;">Dance Teacher Directory</h1>
+    <h1 style="text-align:center;">Strip Journey Directory</h1>
     <div id="map"></div>
     <div class="teacher-list">
         <h2>Teachers</h2>
@@ -91,7 +91,7 @@
                 country: "Czech Republic",
                 style: "Frame Up",
                 IG: "https://www.instagram.com/eve_archarly",
-                coordinates: [50.04794575590786,14.442632996169568],
+                coordinates: [50.08641131302753,14.660153849828674],
                 episode: { number: "04", link: "https://www.stripjourney.com/episodes/interview-eve" }
             },
 {
@@ -204,7 +204,7 @@
                 ${teacher.city}, ${teacher.country}<br>
                 Style: ${teacher.style}<br>
                 ${teacher.website ? `<a href="${teacher.website}" target="_blank" class="website-link">Website</a><br>` : ''}
-                <a href="${teacher.IG}" target="_blank" class="social-link">Social Media</a><br>
+                <a href="${teacher.IG}" target="_blank" class="social-link">IG</a><br>
                 ${teacher.episode ? `<a href="${teacher.episode.link}" target="_blank" class="episode-link">Strip Journey Episode ${teacher.episode.number}</a>` : ''}
             `);
         });
@@ -220,7 +220,7 @@
                 <p><strong>Country:</strong> ${teacher.country}</p>
                 <p><strong>Style:</strong> ${teacher.style}</p>
                 ${teacher.website ? `<p><a href="${teacher.website}" target="_blank" class="website-link">Website</a></p>` : ''}
-                <p><a href="${teacher.IG}" target="_blank" class="social-link">Social Media</a></p>
+                <p><a href="${teacher.IG}" target="_blank" class="social-link">IG</a></p>
                 ${teacher.episode ? `<p><a href="${teacher.episode.link}" target="_blank" class="episode-link">Strip Journey Episode ${teacher.episode.number}</a></p>` : ''}
             `;
             teacherCards.appendChild(card);
