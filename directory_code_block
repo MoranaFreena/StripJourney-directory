@@ -126,24 +126,66 @@
                 name: "Lily",
                 city: "Buenos Aires",
                 country: "Argentina",
-                style: "Floorwork, Frame Up",
-                socialMedia: "https://instagram.com/lesupova_dance",
-                coordinates: [37.27, -119.300],
-                website: "https://lesupovadance.thinkific.com/",
+                style: "Pole dance, Frame Up",
+                socialMedia: "https://www.instagram.com/liclaudine",
+                coordinates: [-34.6083696,-58.4440583],
                 episode: { number: "08", link: "https://www.stripjourney.com/episodes/interview-lily" }
             },
 {
-                name: "Elena Smith",
-                city: "Palm Springs",
-                country: "USA",
-                style: "Floorwork, Frame Up",
-                socialMedia: "https://instagram.com/lesupova_dance",
-                coordinates: [37.27, -119.300],
-                website: "https://lesupovadance.thinkific.com/",
-                episode: { number: "01", link: "https://stripjourney.com/episode1" }
+                name: "Alina Makovska",
+                city: "Hannover",
+                country: "Germany",
+                style: "Strip",
+                socialMedia: "https://www.instagram.com/ad_makovskaya",
+                coordinates: [52.3744779,9.7385532],
+                episode: { number: "09", link: "https://www.stripjourney.com/episodes/interview-alina-makovska" }
             },
-
-         
+{
+                name: "Anastasia Levenson",
+                city: "Lisabon",
+                country: "Portugal",
+                style: "High heels, Frame Up",
+                socialMedia: "https://www.instagram.com/levenson.anastasia",
+                coordinates: [38.7077507,-9.1365919],
+                 website: "https://lvnsn.art/",
+                episode: { number: "10", link: "https://www.stripjourney.com/episodes/interview-anastasia-levenson" }
+            },
+{
+                name: "Eva Marta",
+                city: "Dresden",
+                country: "Germany",
+                style: "Ballet, Frame Up",
+                socialMedia: "https://www.instagram.com/suspiria.em/",
+                coordinates: [51.0493286,13.7381437],
+                episode: { number: "11", link: "https://www.stripjourney.com/episodes/interview-eva-marta" }
+            },
+{
+                name: "Irina",
+                city: "Braunschweig",
+                country: "Germany",
+                style: "High heels, Frame Up",
+                socialMedia: "https://www.instagram.com/kaz.irk",
+                coordinates: [52.2646577,10.5236066],
+                episode: { number: "12", link: "https://www.stripjourney.com/episodes/interview-irina" }
+            },
+{
+                name: "Randa",
+                city: "Bali",
+                country: "Indonesia",
+                style: "Floorwork acrobatics",
+                socialMedia: "https://www.instagram.com/morella.dance",
+                coordinates: [-8.2271303,115.1919203],
+                episode: { number: "13", link: "https://www.stripjourney.com/episodes/interview-randa" }
+            },
+         {
+                name: "Tanya",
+                city: "New Jersey",
+                country: "USA",
+                style: "Frame Up",
+                socialMedia: "https://www.instagram.com/tanya_phoenix",
+                coordinates: [40.0757384,-74.4041622],
+                episode: { number: "14", link: "https://www.stripjourney.com/episodes/interview-tanya" }
+            }
         ];
 
         // Initialize map
