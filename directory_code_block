@@ -128,7 +128,7 @@
                 country: "Argentina",
                 style: "Pole dance, Frame Up",
                 IG: "https://www.instagram.com/liclaudine",
-                coordinates: [-34.6083696,-58.4440583],
+                coordinates: [-34.61315,-58.37723],
                 episode: { number: "08", link: "https://www.stripjourney.com/episodes/interview-lily" }
             },
 {
@@ -151,6 +151,16 @@
                 episode: { number: "10", link: "https://www.stripjourney.com/episodes/interview-anastasia-levenson" }
             },
 {
+                name: "Anastasia Levenson",
+                city: "Riga",
+                country: "Latvia",
+                style: "High heels, Frame Up",
+                IG: "https://www.instagram.com/levenson.anastasia",
+                coordinates: [56.9493977,24.1051846],
+                 website: "https://lvnsn.art/",
+                episode: { number: "10", link: "https://www.stripjourney.com/episodes/interview-anastasia-levenson" }
+            },
+{
                 name: "Eva Marta",
                 city: "Dresden",
                 country: "Germany",
@@ -161,20 +171,20 @@
             },
 {
                 name: "Irina",
-                city: "Braunschweig",
+                city: "Hannover",
                 country: "Germany",
                 style: "High heels, Frame Up",
                 IG: "https://www.instagram.com/kaz.irk",
-                coordinates: [52.2646577,10.5236066],
+                coordinates: [52.40459013900455,9.73481609118689],
                 episode: { number: "12", link: "https://www.stripjourney.com/episodes/interview-irina" }
             },
 {
                 name: "Randa",
-                city: "Bali",
-                country: "Indonesia",
+                city: "Helsinki",
+                country: "Finland",
                 style: "Floorwork acrobatics",
                 IG: "https://www.instagram.com/morella.dance",
-                coordinates: [-8.2271303,115.1919203],
+                coordinates: [60.1674881,24.9427473],
                 episode: { number: "13", link: "https://www.stripjourney.com/episodes/interview-randa" }
             },
          {
