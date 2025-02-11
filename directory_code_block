@@ -187,6 +187,15 @@
                 coordinates: [60.1674881,24.9427473],
                 episode: { number: "13", link: "https://www.stripjourney.com/episodes/interview-randa" }
             },
+{
+                name: "Alina Boshchenko",
+                city: "Amsterdam",
+                country: "The Netherlands",
+                style: "Frame Up",
+                IG: "https://www.instagram.com/lesslyrics_",
+                coordinates: [52.359316488787854,4.913674218034414],
+                episode: { number: "16", link: "https://www.stripjourney.com/episodes/interview-alina-b" }
+            },
          {
                 name: "Tanya",
                 city: "New Jersey",
