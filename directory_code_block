@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strip Journey Directory</title>
+    <title>Strip Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body {
@@ -46,7 +46,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-    <h1 style="text-align:center;">Strip Journey Directory</h1>
+    <h1 style="text-align:center;">Strip Map</h1>
     <div id="map"></div>
     <div class="teacher-list">
         <h2>Teachers</h2>
