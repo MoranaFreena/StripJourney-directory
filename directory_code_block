@@ -213,6 +213,34 @@
                 IG: "https://www.instagram.com/i.bancheva",
                 coordinates: [42.1418541,24.7499297]
                 
+            },
+{
+                name: "Yasha",
+                city: "Prague",
+                country: "Czech Republic",
+                style: "Frame Up",
+                IG: "https://www.instagram.com/yasha_vasha",
+                coordinates: [50.10043803740542,14.42989397712437],
+                 website: "https://www.instagram.com/ultima.thule.art"
+                
+            },
+{
+                name: "Liza Makarova",
+                city: "Prague",
+                country: "Czech Republic",
+                style: "Frame Up",
+                IG: "https://www.instagram.com/foxmakarova",
+                coordinates: [50.05391674709135,14.434056765515484]
+                
+            },
+{
+                name: "Mia Lê",
+                city: "Helsinki",
+                country: "Finland",
+                style: "Strip",
+                IG: "https://www.instagram.com/mialenotlee",
+                coordinates: [60.15831077866853,24.960642998547456]
+                
             }
         ];
 
