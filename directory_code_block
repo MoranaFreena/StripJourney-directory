@@ -250,6 +250,15 @@
                 IG: "https://www.instagram.com/ktgbrv",
                 coordinates: [48.7784485,9.1800132]
                 
+            },
+{
+                name: "Mariia Mariutina",
+                city: "Belgrade",
+                country: "Serbia",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/masha_mahich",
+                coordinates: [44.8178131,20.4568974]
+                
             }
         ];
 
