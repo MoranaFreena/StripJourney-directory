@@ -259,6 +259,35 @@
                 IG: "https://www.instagram.com/masha_mahich",
                 coordinates: [44.8178131,20.4568974]
                 
+            },
+{
+                name: "Varya Balashova",
+                city: "Bremen",
+                country: "Germany",
+                style: "Strip, jazz funk, high heels",
+                IG: "https://www.instagram.com/_thundery_",
+                coordinates: [53.0758196,8.8071646]
+                
+            },
+{
+                name: "Alisa",
+                city: "Budapest",
+                country: "Hungary",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/alisa.dubolari",
+                coordinates: [47.4978789,19.0402383],
+                website: "https://www.instagram.com/skydance.team"
+                
+            },
+{
+                name: "Nata Bella",
+                city: "Manchester & Liverpool",
+                country: "UK",
+                style: "Strip, Exotic High Heels ",
+                IG: "https://www.instagram.com/natabella.artist",
+                coordinates: [53.4794892,-2.2451148],
+                website: "https://www.instagram.com/natabellaclub"
+                
             }
         ];
 
