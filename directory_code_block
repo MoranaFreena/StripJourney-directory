@@ -288,6 +288,52 @@
                 coordinates: [53.4794892,-2.2451148],
                 website: "https://www.instagram.com/natabellaclub"
                 
+            },
+{
+                name: "Alexandra Andries",
+                city: "Chisinau",
+                country: "Moldova",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/_alexandra_andriesh_",
+                coordinates: [47.0245117,28.8322923],
+                website: "https://www.instagram.com/skydance.md"
+                
+            },
+{
+                name: "Anna Lapchenko",
+                city: "Prague",
+                country: "Czech Republic",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/lapchenkoanna",
+                coordinates: [50.07052376400649,14.392925707359328]
+                
+            },
+{
+                name: "Anna Solokhina",
+                city: "Wrocław ",
+                country: "Poland",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/anna.solokhina1",
+                coordinates: [51.1089776,17.0326689]
+                
+            },
+{
+                name: "Svetlana Hudabašjana",
+                city: "Riga ",
+                country: "Latvia",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/_svetlana_1228",
+                coordinates: [56.945749264069256,24.079419505453966]
+                
+            },
+{
+                name: "Tatiana Pawlak",
+                city: "Poznan",
+                country: "Poland",
+                style: "Strip",
+                IG: "https://www.instagram.com/tatiana_pawlak",
+                coordinates: [52.4082663,16.9335199],
+              episode: { number: "18", link: "https://www.stripjourney.com/episodes/interview-tatiana" }    
             }
         ];
 
