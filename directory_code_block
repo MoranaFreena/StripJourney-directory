@@ -334,6 +334,14 @@
                 IG: "https://www.instagram.com/tatiana_pawlak",
                 coordinates: [52.4082663,16.9335199],
               episode: { number: "18", link: "https://www.stripjourney.com/episodes/interview-tatiana" }    
+            },
+{
+                name: "Tanja",
+                city: "Munich",
+                country: "Germany",
+                style: "Frame Up, High Heels, Floorwork",
+                IG: "https://www.instagram.com/bogushtanja",
+                coordinates: [48.1371079,11.5753822]    
             }
         ];
 
