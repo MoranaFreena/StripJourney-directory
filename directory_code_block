@@ -342,6 +342,14 @@
                 style: "Frame Up, High Heels, Floorwork",
                 IG: "https://www.instagram.com/bogushtanja",
                 coordinates: [48.1371079,11.5753822]    
+            },
+{
+                name: "Olga Malakhova",
+                city: "Thessaloniki",
+                country: "Greece",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/lomovueva",
+                coordinates: [40.6403167,22.9352716]    
             }
         ];
 
