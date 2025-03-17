@@ -350,6 +350,15 @@
                 style: "Frame Up Strip",
                 IG: "https://www.instagram.com/lomovueva",
                 coordinates: [40.6403167,22.9352716]    
+            },
+    {
+                name: "Anna Slide",
+                city: "Frankfurt",
+                country: "Germany",
+                style: "Frame Up, High heels",
+                IG: "https://www.instagram.com/annaslide",
+                coordinates: [50.1106444,8.6820917],
+                episode: { number: "19", link: "https://www.stripjourney.com/episodes/interview-anna-slide" }
             }
         ];
 
