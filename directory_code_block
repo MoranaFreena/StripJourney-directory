@@ -359,6 +359,14 @@
                 IG: "https://www.instagram.com/annaslide",
                 coordinates: [50.1106444,8.6820917],
                 episode: { number: "19", link: "https://www.stripjourney.com/episodes/interview-anna-slide" }
+            },
+{
+                name: "Yevgeniya ",
+                city: "Hamburg",
+                country: "Germany",
+                style: "Frame up , Latin Dance",
+                IG: "https://www.instagram.com/yevgeniyaa.sch",
+                coordinates: [53.53562938351167,9.966335788897949]    
             }
         ];
 
