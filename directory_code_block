@@ -221,7 +221,7 @@
                 style: "Frame Up",
                 IG: "https://www.instagram.com/yasha_vasha",
                 coordinates: [50.10043803740542,14.42989397712437],
-                episode: { number: "20", link: "https://www.stripjourney.com/episodes/interview-yasha" } 
+                episode: { number: "20", link: "https://www.stripjourney.com/episodes/interview-yasha" }, 
                  website: "https://www.instagram.com/ultima.thule.art"
                 
             },
@@ -258,7 +258,7 @@
                 country: "Serbia",
                 style: "Frame Up Strip",
                 IG: "https://www.instagram.com/masha_mahich",
-                coordinates: [44.8178131,20.4568974]
+                coordinates: [44.8178131,20.4568974],
                 episode: { number: "21", link: "https://www.stripjourney.com/episodes/interview-mariia-mariutina" } 
                 
             },
