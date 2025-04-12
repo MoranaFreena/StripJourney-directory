@@ -221,6 +221,7 @@
                 style: "Frame Up",
                 IG: "https://www.instagram.com/yasha_vasha",
                 coordinates: [50.10043803740542,14.42989397712437],
+                episode: { number: "20", link: "https://www.stripjourney.com/episodes/interview-yasha" } 
                  website: "https://www.instagram.com/ultima.thule.art"
                 
             },
@@ -258,6 +259,7 @@
                 style: "Frame Up Strip",
                 IG: "https://www.instagram.com/masha_mahich",
                 coordinates: [44.8178131,20.4568974]
+                episode: { number: "21", link: "https://www.stripjourney.com/episodes/interview-mariia-mariutina" } 
                 
             },
 {
@@ -367,7 +369,17 @@
                 style: "Frame up , Latin Dance",
                 IG: "https://www.instagram.com/yevgeniyaa.sch",
                 coordinates: [53.53562938351167,9.966335788897949]    
+            },
+{
+                name: "Vivian Voss - Experimental EROTICA ",
+                city: "Athens",
+                country: "Greece",
+                style: "Strip, Contemporary, Ballet, Experimental",
+                IG: "https://www.instagram.com/vivianvoss_",
+                coordinates: [37.9755648,23.7348324],
+                website: "https://www.instagram.com/experimental.erotica"
             }
+
         ];
 
         // Initialize map
