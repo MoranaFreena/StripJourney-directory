@@ -378,7 +378,25 @@
                 IG: "https://www.instagram.com/vivianvoss_",
                 coordinates: [37.9755648,23.7348324],
                 website: "https://www.instagram.com/experimental.erotica"
+            },
+{
+                name: "Maria",
+                city: "Zurich",
+                country: "Switzerland",
+                style: "Frame Up",
+                IG: "https://www.instagram.com/the_walking_muse",
+                coordinates: [47.3744489,8.5410422],
+                episode: { number: "22", link: "https://www.stripjourney.com/episodes/interview-maria" }
+            },
+{
+                name: "Viktoryia Kalashnikava",
+                city: "Warshaw",
+                country: "Poland",
+                style: "Frame up strip",
+                IG: "https://www.instagram.com/bodyofyourparty",
+                coordinates: [52.2319581,21.0067249]    
             }
+
 
         ];
 
