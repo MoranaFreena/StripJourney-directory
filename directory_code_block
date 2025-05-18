@@ -386,7 +386,7 @@
                 style: "Frame Up",
                 IG: "https://www.instagram.com/the_walking_muse",
                 coordinates: [47.3744489,8.5410422],
-                episode: { number: "22", link: "https://www.stripjourney.com/episodes/interview-maria" }
+                episode: { number: "22", link: "https://www.stripjourney.com/episodes/episode22-maria" }
             },
 {
                 name: "Viktoryia Kalashnikava",
@@ -395,8 +395,39 @@
                 style: "Frame up strip",
                 IG: "https://www.instagram.com/bodyofyourparty",
                 coordinates: [52.2319581,21.0067249]    
+            },
+{
+                name: "Hanna Tapunova ",
+                city: "Lublin",
+                country: "Poland",
+                style: "Frame up strip",
+                IG: "https://www.instagram.com/tapunovaa",
+                coordinates: [51.250559,22.5701022]    
+            },
+{
+                name: "Alena",
+                city: "Barrie",
+                country: "Canada",
+                style: "Strip",
+                IG: "https://www.instagram.com/feelme.danceschool",
+                coordinates: [44.3893208,-79.6901302]    
+            },
+{
+                name: "Margarita Shtrigel",
+                city: "Helsinki",
+                country: "Finland",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/msh_dance",
+                coordinates: [60.1626025378795,24.892124109257313]    
+            },
+{
+                name: "Frame up strip Cyprus",
+                city: "Limassol",
+                country: "Cyprus",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/apotheos.dance",
+                coordinates: [34.6852901,33.0332657]    
             }
-
 
         ];
 
