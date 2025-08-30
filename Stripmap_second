@@ -72,7 +72,7 @@
                 country: "Czech Republic",
                 style: "Pole Dance, Frame Up",
                 IG: "https://www.instagram.com/stories/_d_e_motion",
-                coordinates: [50.0596288, 14.4464593],
+                coordinates: [50.0596288,14.4464593],
                 episode: { number: "02", link: "https://www.stripjourney.com/episodes/interview-deny-grigorik" }
             },
             {
@@ -91,7 +91,7 @@
                 country: "Czech Republic",
                 style: "Frame Up",
                 IG: "https://www.instagram.com/eve_archarly",
-                coordinates: [50.08082370612608,14.550679213482812],
+                coordinates: [50.0596288,14.4464593],
                 episode: { number: "04", link: "https://www.stripjourney.com/episodes/interview-eve" }
             },
             {
@@ -175,7 +175,7 @@
                 country: "Germany",
                 style: "High heels, Frame Up",
                 IG: "https://www.instagram.com/kaz.irk",
-                coordinates: [52.40459013900455,9.73481609118689],
+                coordinates: [52.3744779,9.7385532],
                 episode: { number: "12", link: "https://www.stripjourney.com/episodes/interview-irina" }
             },
             {
@@ -184,7 +184,7 @@
                 country: "Finland",
                 style: "Floorwork acrobatics",
                 IG: "https://www.instagram.com/morella.dance",
-                coordinates: [60.1674881,24.9427473],
+                coordinates: [60.1698897,24.9384719],
                 episode: { number: "13", link: "https://www.stripjourney.com/episodes/interview-randa" }
             },
             {
@@ -202,7 +202,7 @@
                 country: "The Netherlands",
                 style: "Frame Up",
                 IG: "https://www.instagram.com/lesslyrics_",
-                coordinates: [52.359316488787854,4.913674218034414],
+                coordinates: [52.3730796,4.8924534],
                 episode: { number: "16", link: "https://www.stripjourney.com/episodes/interview-alina-b" }
             },
             {
@@ -219,7 +219,7 @@
                 country: "Czech Republic",
                 style: "Frame Up",
                 IG: "https://www.instagram.com/yasha_vasha",
-                coordinates: [50.10043803740542,14.42989397712437],
+                coordinates: [50.0596288,14.4464593],
                 episode: { number: "20", link: "https://www.stripjourney.com/episodes/interview-yasha" },
                 website: "https://www.instagram.com/ultima.thule.art"
             },
@@ -229,7 +229,8 @@
                 country: "Czech Republic",
                 style: "Frame Up",
                 IG: "https://www.instagram.com/foxmakarova",
-                coordinates: [50.05391674709135,14.434056765515484]
+                coordinates: [50.0596288,14.4464593],
+                episode: { number: "23", link: "https://www.stripjourney.com/episodes/episode23-liza-makarova" }
             },
             {
                 name: "Mia Lê",
@@ -237,7 +238,7 @@
                 country: "Finland",
                 style: "Strip",
                 IG: "https://www.instagram.com/mialenotlee",
-                coordinates: [60.15831077866853,24.960642998547456]
+                coordinates: [60.1698897,24.9384719]
             },
             {
                 name: "Kateryna",
@@ -297,7 +298,7 @@
                 country: "Czech Republic",
                 style: "Frame Up Strip",
                 IG: "https://www.instagram.com/lapchenkoanna",
-                coordinates: [50.07052376400649,14.392925707359328]
+                coordinates: [50.0596288,14.4464593]
             },
             {
                 name: "Anna Solokhina",
@@ -364,7 +365,8 @@
                 style: "Strip, Contemporary, Ballet, Experimental",
                 IG: "https://www.instagram.com/vivianvoss_",
                 coordinates: [37.9755648,23.7348324],
-                website: "https://www.instagram.com/experimental.erotica"
+                website: "https://www.instagram.com/experimental.erotica",
+                episode: { number: "24", link: "https://www.stripjourney.com/episodes/episode24-vivian-voss" }
             },
             {
                 name: "Maria",
@@ -405,7 +407,7 @@
                 country: "Finland",
                 style: "Frame Up Strip",
                 IG: "https://www.instagram.com/msh_dance",
-                coordinates: [60.1626025378795,24.892124109257313]
+                coordinates: [60.1698897,24.9384719]
             },
             {
                 name: "Frame up strip Cyprus",
@@ -414,6 +416,24 @@
                 style: "Frame Up Strip",
                 IG: "https://www.instagram.com/apotheos.dance",
                 coordinates: [34.6852901,33.0332657]
+            },
+   {
+                name: "Anna Strok",
+                city: "Warsaw",
+                country: "Poland",
+                style: "Frame Up Strip",
+                IG: "https://www.instagram.com/anna.strok_dance",
+                coordinates: [52.2319581,21.0067249],
+                episode: { number: "25", link: "https://www.stripjourney.com/episodes/episode25-anna-strok" },
+                website: "https://www.instagram.com/cablook_dance"
+            },
+   {
+                name: "Osnapitsalisa",
+                city: "Lodz",
+                country: "Poland",
+                style: "Frame Up",
+                IG: "https://www.instagram.com/osnapitsalisa",
+                coordinates: [51.7687323,19.4569911]
             }
         ];
 
