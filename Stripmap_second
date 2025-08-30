@@ -1,48 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Strip Map</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <style>
-    :root {
-      --single: #2b6cb0; /* blue */
-      --multi:  #d53f8c; /* pink */
-      --muted:  #a0aec0;
-    }
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { padding: 14px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-    header h1 { margin: 0 12px 0 0; font-size: 22px; }
-    #search { flex: 1 1 280px; max-width: 520px; padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; }
-    #map { height: 520px; width: 100%; }
-    .legend { display:flex; gap:18px; align-items:center; font-size: 14px; color:#444; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right:6px; }
-    .teacher-list { margin: 18px; }
-    .teacher-list h2 { margin: 0 0 10px 0; }
-    .teacher-card {
-      border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px; margin-bottom: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    }
-    .teacher-card h3 { margin: 0 0 6px; font-size: 18px; }
-    .teacher-card p { margin: 4px 0; }
-    .links a { text-decoration: none; margin-right: 12px; }
-    .social-link { color: #2563eb; }
-    .website-link { color: #16a34a; }
-    .episode-link { color: #7c3aed; }
-    .muted { color: var(--muted); }
-  </style>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-</head>
-<body>
-  <header>
+<!-- Strip Map (Squarespace-ready, single Code Block) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+  :root { --single:#2b6cb0; --multi:#d53f8c; --muted:#a0aec0; }
+  #sj-wrap { font-family: Arial, sans-serif; }
+  #sj-head { padding:14px 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  #sj-head h1 { margin:0 12px 0 0; font-size:22px; }
+  #sj-search { flex:1 1 280px; max-width:520px; padding:10px 12px; border:1px solid #ccc; border-radius:8px; }
+  #map { height:520px; width:100%; }
+  .legend { display:flex; gap:18px; align-items:center; font-size:14px; color:#444; }
+  .dot { width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:6px; }
+  .teacher-list { margin:18px; }
+  .teacher-list h2 { margin:0 0 10px 0; }
+  .teacher-card { border:1px solid #e2e8f0; border-radius:10px; padding:12px; margin-bottom:10px; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .teacher-card h3 { margin:0 0 6px; font-size:18px; }
+  .teacher-card p { margin:4px 0; }
+  .links a { text-decoration:none; margin-right:12px; }
+  .social-link { color:#2563eb; }
+  .website-link { color:#16a34a; }
+  .episode-link { color:#7c3aed; }
+  .muted { color:var(--muted); }
+</style>
+
+<div id="sj-wrap">
+  <div id="sj-head">
     <h1>Strip Map</h1>
-    <input id="search" type="search" placeholder="Search by name, city, country, or style…" />
+    <input id="sj-search" type="search" placeholder="Search by name, city, country, or style…"/>
     <div class="legend">
       <span><span class="dot" style="background:var(--single)"></span>1 teacher</span>
       <span><span class="dot" style="background:var(--multi)"></span>2+ teachers</span>
     </div>
-  </header>
+  </div>
 
   <div id="map"></div>
 
@@ -50,275 +38,199 @@
     <h2 id="list-title">Teachers in view</h2>
     <div id="teacher-cards"></div>
   </div>
+</div>
 
-  <script>
-    // ----------------------
-    // 1) Data (cleaned list)
-    // ----------------------
-    const teachers = [
-      { name:"Elena Smith", city:"Palm Springs", country:"USA", style:"Floorwork, Frame Up", IG:"https://instagram.com/lesupova_dance", coordinates:[33.8246269,-116.540303], website:"https://lesupovadance.thinkific.com/", episode:{ number:"01", link:"https://www.stripjourney.com/episodes/interview-ellena-smith-99sy4-4zj89" } },
-      { name:"Deny Grigorik", city:"Prague", country:"Czech Republic", style:"Pole Dance, Frame Up", IG:"https://www.instagram.com/stories/_d_e_motion", coordinates:[50.0596288,14.4464593], episode:{ number:"02", link:"https://www.stripjourney.com/episodes/interview-deny-grigorik" } },
-      { name:"Anastasia Vlasova", city:"London", country:"United Kingdom", style:"Frame Up, High heels", IG:"https://www.instagram.com/stories/nastish_vlasova", coordinates:[51.4893335,-0.1440551], website:"https://www.frame-up.uk/", episode:{ number:"03", link:"https://www.stripjourney.com/episodes/interview-anastasia-vlasova" } },
-      { name:"Eve", city:"Prague", country:"Czech Republic", style:"Frame Up", IG:"https://www.instagram.com/eve_archarly", episode:{ number:"04", link:"https://www.stripjourney.com/episodes/interview-eve" } },
-      { name:"Daria", city:"Düsseldorf", country:"Germany", style:"Pole dance, Frame Up, High heels", IG:"https://www.instagram.com/daring.daria", coordinates:[51.2254018,6.7763137], episode:{ number:"05", link:"https://www.stripjourney.com/episodes/interview-daria" } },
-      { name:"Anastasiia Urmanavichius", city:"Amsterdam", country:"Netherlands", style:"Frame Up", IG:"https://www.instagram.com/ness_lynx", coordinates:[52.3730796,4.8924534], episode:{ number:"06", link:"https://www.stripjourney.com/episodes/interview-anastasia-amsterdam" } },
-      { name:"Vlada Kosha", city:"Hamburg", country:"Germany", style:"High heels, Frame Up", IG:"https://instagram.com/vladakosha", coordinates:[53.550341,10.000654], website:"https://www.eversports.de/s/hheels", episode:{ number:"07", link:"https://www.stripjourney.com/episodes/interview-vlada-kosha" } },
-      { name:"Lily", city:"Buenos Aires", country:"Argentina", style:"Pole dance, Frame Up", IG:"https://www.instagram.com/liclaudine", coordinates:[-34.61315,-58.37723], episode:{ number:"08", link:"https://www.stripjourney.com/episodes/interview-lily" } },
-      { name:"Alina Makovska", city:"Hannover", country:"Germany", style:"Strip", IG:"https://www.instagram.com/ad_makovskaya", coordinates:[52.3744779,9.7385532], episode:{ number:"09", link:"https://www.stripjourney.com/episodes/interview-alina-makovska" } },
-      { name:"Anastasia Levenson", city:"Lisbon", country:"Portugal", style:"High heels, Frame Up", IG:"https://www.instagram.com/levenson.anastasia", coordinates:[38.7077507,-9.1365919], website:"https://lvnsn.art/", episode:{ number:"10", link:"https://www.stripjourney.com/episodes/interview-anastasia-levenson" } },
-      { name:"Anastasia Levenson", city:"Riga", country:"Latvia", style:"High heels, Frame Up", IG:"https://www.instagram.com/levenson.anastasia", coordinates:[56.9493977,24.1051846], website:"https://lvnsn.art/", episode:{ number:"10", link:"https://www.stripjourney.com/episodes/interview-anastasia-levenson" } },
-      { name:"Eva Marta", city:"Dresden", country:"Germany", style:"Ballet, Frame Up", IG:"https://www.instagram.com/suspiria.em/", coordinates:[51.0493286,13.7381437], episode:{ number:"11", link:"https://www.stripjourney.com/episodes/interview-eva-marta" } },
-      { name:"Irina", city:"Hannover", country:"Germany", style:"High heels, Frame Up", IG:"https://www.instagram.com/kaz.irk", episode:{ number:"12", link:"https://www.stripjourney.com/episodes/interview-irina" } },
-      { name:"Randa", city:"Helsinki", country:"Finland", style:"Floorwork acrobatics", IG:"https://www.instagram.com/morella.dance", coordinates:[60.1674881,24.9427473], episode:{ number:"13", link:"https://www.stripjourney.com/episodes/interview-randa" } },
-      { name:"Tanya", city:"New Jersey", country:"USA", style:"Frame Up", IG:"https://www.instagram.com/tanya_phoenix", coordinates:[40.0757384,-74.4041622], episode:{ number:"14", link:"https://www.stripjourney.com/episodes/interview-tanya" } },
-      { name:"Alina Boshchenko", city:"Amsterdam", country:"Netherlands", style:"Frame Up", IG:"https://www.instagram.com/lesslyrics_", episode:{ number:"16", link:"https://www.stripjourney.com/episodes/interview-alina-b" } },
-      { name:"Iliana", city:"Plovdiv", country:"Bulgaria", style:"Strip, Exotic Pole", IG:"https://www.instagram.com/i.bancheva", coordinates:[42.1418541,24.7499297] },
-      { name:"Yasha", city:"Prague", country:"Czech Republic", style:"Frame Up", IG:"https://www.instagram.com/yasha_vasha", episode:{ number:"20", link:"https://www.stripjourney.com/episodes/interview-yasha" }, website:"https://www.instagram.com/ultima.thule.art" },
-      { name:"Liza Makarova", city:"Prague", country:"Czech Republic", style:"Frame Up", IG:"https://www.instagram.com/foxmakarova", episode:{ number:"23", link:"https://www.stripjourney.com/episodes/episode23-liza-makarova" } },
-      { name:"Mia Lê", city:"Helsinki", country:"Finland", style:"Strip", IG:"https://www.instagram.com/mialenotlee" },
-      { name:"Kateryna", city:"Stuttgart", country:"Germany", style:"Strip", IG:"https://www.instagram.com/ktgbrv", coordinates:[48.7784485,9.1800132] },
-      { name:"Mariia Mariutina", city:"Belgrade", country:"Serbia", style:"Frame Up Strip", IG:"https://www.instagram.com/masha_mahich", coordinates:[44.8178131,20.4568974], episode:{ number:"21", link:"https://www.stripjourney.com/episodes/interview-mariia-mariutina" } },
-      { name:"Varya Balashova", city:"Bremen", country:"Germany", style:"Strip, jazz funk, high heels", IG:"https://www.instagram.com/_thundery_", coordinates:[53.0758196,8.8071646] },
-      { name:"Alisa", city:"Budapest", country:"Hungary", style:"Frame Up Strip", IG:"https://www.instagram.com/alisa.dubolari", coordinates:[47.4978789,19.0402383], website:"https://www.instagram.com/skydance.team" },
-      { name:"Nata Bella", city:"Manchester", country:"United Kingdom", style:"Strip, Exotic High Heels ", IG:"https://www.instagram.com/natabella.artist", coordinates:[53.4794892,-2.2451148], website:"https://www.instagram.com/natabellaclub" },
-      { name:"Nata Bella", city:"Liverpool", country:"United Kingdom", style:"Strip, Exotic High Heels ", IG:"https://www.instagram.com/natabella.artist", coordinates:[53.4084,-2.9916], website:"https://www.instagram.com/natabellaclub" },
-      { name:"Alexandra Andries", city:"Chisinau", country:"Moldova", style:"Frame Up Strip", IG:"https://www.instagram.com/_alexandra_andriesh_", coordinates:[47.0245117,28.8322923], website:"https://www.instagram.com/skydance.md" },
-      { name:"Anna Lapchenko", city:"Prague", country:"Czech Republic", style:"Frame Up Strip", IG:"https://www.instagram.com/lapchenkoanna" },
-      { name:"Anna Solokhina", city:"Wrocław", country:"Poland", style:"Frame Up Strip", IG:"https://www.instagram.com/anna.solokhina1", coordinates:[51.1089776,17.0326689] },
-      { name:"Svetlana Hudabašjana", city:"Riga", country:"Latvia", style:"Frame Up Strip", IG:"https://www.instagram.com/_svetlana_1228" },
-      { name:"Tatiana Pawlak", city:"Poznań", country:"Poland", style:"Strip", IG:"https://www.instagram.com/tatiana_pawlak", coordinates:[52.4082663,16.9335199], episode:{ number:"18", link:"https://www.stripjourney.com/episodes/interview-tatiana" } },
-      { name:"Tanja", city:"Munich", country:"Germany", style:"Frame Up, High Heels, Floorwork", IG:"https://www.instagram.com/bogushtanja", coordinates:[48.1371079,11.5753822] },
-      { name:"Olga Malakhova", city:"Thessaloniki", country:"Greece", style:"Frame Up Strip", IG:"https://www.instagram.com/lomovueva", coordinates:[40.6403167,22.9352716] },
-      { name:"Anna Slide", city:"Frankfurt", country:"Germany", style:"Frame Up, High heels", IG:"https://www.instagram.com/annaslide", coordinates:[50.1106444,8.6820917], episode:{ number:"19", link:"https://www.stripjourney.com/episodes/interview-anna-slide" } },
-      { name:"Yevgeniya", city:"Hamburg", country:"Germany", style:"Frame up , Latin Dance", IG:"https://www.instagram.com/yevgeniyaa.sch" },
-      { name:"Vivian Voss - Experimental EROTICA", city:"Athens", country:"Greece", style:"Strip, Contemporary, Ballet, Experimental", IG:"https://www.instagram.com/vivianvoss_", coordinates:[37.9755648,23.7348324], website:"https://www.instagram.com/experimental.erotica", episode:{ number:"24", link:"https://www.stripjourney.com/episodes/episode24-vivian-voss"} },
-      { name:"Maria", city:"Zürich", country:"Switzerland", style:"Frame Up", IG:"https://www.instagram.com/the_walking_muse", coordinates:[47.3744489,8.5410422], episode:{ number:"22", link:"https://www.stripjourney.com/episodes/episode22-maria" } },
-      { name:"Viktoryia Kalashnikava", city:"Warsaw", country:"Poland", style:"Frame up strip", IG:"https://www.instagram.com/bodyofyourparty", coordinates:[52.2319581,21.0067249] },
-      { name:"Hanna Tapunova", city:"Lublin", country:"Poland", style:"Frame up strip", IG:"https://www.instagram.com/tapunovaa", coordinates:[51.250559,22.5701022] },
-      { name:"Alena", city:"Barrie", country:"Canada", style:"Strip", IG:"https://www.instagram.com/feelme.danceschool", coordinates:[44.3893208,-79.6901302] },
-      { name:"Margarita Shtrigel", city:"Helsinki", country:"Finland", style:"Frame Up Strip", IG:"https://www.instagram.com/msh_dance" },
-      { name:"Frame up strip Cyprus", city:"Limassol", country:"Cyprus", style:"Frame Up Strip", IG:"https://www.instagram.com/apotheos.dance", coordinates:[34.6852901,33.0332657] },
-      { name:"Anna Strok", city:"Warsaw", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/anna.strok_dance", coordinates:[52.2319581,21.0067249], website:"https://www.instagram.com/cablook_dance", episode:{ number:"25", link:"https://www.stripjourney.com/episodes/episode25-anna-strok"} },     
-      { name:"Osnapitsalisa ", city:"Lodz", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/osnapitsalisa", coordinates:[51.7687323,19.4569911] }
-    ];
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // ---- data (your corrected list) ----
+  const teachers = [
+    { name:"Elena Smith", city:"Palm Springs", country:"USA", style:"Floorwork, Frame Up", IG:"https://instagram.com/lesupova_dance", coordinates:[33.8246269,-116.540303], website:"https://lesupovadance.thinkific.com/", episode:{ number:"01", link:"https://www.stripjourney.com/episodes/interview-ellena-smith-99sy4-4zj89" } },
+    { name:"Deny Grigorik", city:"Prague", country:"Czech Republic", style:"Pole Dance, Frame Up", IG:"https://www.instagram.com/stories/_d_e_motion", coordinates:[50.0596288,14.4464593], episode:{ number:"02", link:"https://www.stripjourney.com/episodes/interview-deny-grigorik" } },
+    { name:"Anastasia Vlasova", city:"London", country:"United Kingdom", style:"Frame Up, High heels", IG:"https://www.instagram.com/stories/nastish_vlasova", coordinates:[51.4893335,-0.1440551], website:"https://www.frame-up.uk/", episode:{ number:"03", link:"https://www.stripjourney.com/episodes/interview-anastasia-vlasova" } },
+    { name:"Eve", city:"Prague", country:"Czech Republic", style:"Frame Up", IG:"https://www.instagram.com/eve_archarly", episode:{ number:"04", link:"https://www.stripjourney.com/episodes/interview-eve" } },
+    { name:"Daria", city:"Düsseldorf", country:"Germany", style:"Pole dance, Frame Up, High heels", IG:"https://www.instagram.com/daring.daria", coordinates:[51.2254018,6.7763137], episode:{ number:"05", link:"https://www.stripjourney.com/episodes/interview-daria" } },
+    { name:"Anastasiia Urmanavichius", city:"Amsterdam", country:"Netherlands", style:"Frame Up", IG:"https://www.instagram.com/ness_lynx", coordinates:[52.3730796,4.8924534], episode:{ number:"06", link:"https://www.stripjourney.com/episodes/interview-anastasia-amsterdam" } },
+    { name:"Vlada Kosha", city:"Hamburg", country:"Germany", style:"High heels, Frame Up", IG:"https://instagram.com/vladakosha", coordinates:[53.550341,10.000654], website:"https://www.eversports.de/s/hheels", episode:{ number:"07", link:"https://www.stripjourney.com/episodes/interview-vlada-kosha" } },
+    { name:"Lily", city:"Buenos Aires", country:"Argentina", style:"Pole dance, Frame Up", IG:"https://www.instagram.com/liclaudine", coordinates:[-34.61315,-58.37723], episode:{ number:"08", link:"https://www.stripjourney.com/episodes/interview-lily" } },
+    { name:"Alina Makovska", city:"Hannover", country:"Germany", style:"Strip", IG:"https://www.instagram.com/ad_makovskaya", coordinates:[52.3744779,9.7385532], episode:{ number:"09", link:"https://www.stripjourney.com/episodes/interview-alina-makovska" } },
+    { name:"Anastasia Levenson", city:"Lisbon", country:"Portugal", style:"High heels, Frame Up", IG:"https://www.instagram.com/levenson.anastasia", coordinates:[38.7077507,-9.1365919], website:"https://lvnsn.art/", episode:{ number:"10", link:"https://www.stripjourney.com/episodes/interview-anastasia-levenson" } },
+    { name:"Anastasia Levenson", city:"Riga", country:"Latvia", style:"High heels, Frame Up", IG:"https://www.instagram.com/levenson.anastasia", coordinates:[56.9493977,24.1051846], website:"https://lvnsn.art/", episode:{ number:"10", link:"https://www.stripjourney.com/episodes/interview-anastasia-levenson" } },
+    { name:"Eva Marta", city:"Dresden", country:"Germany", style:"Ballet, Frame Up", IG:"https://www.instagram.com/suspiria.em/", coordinates:[51.0493286,13.7381437], episode:{ number:"11", link:"https://www.stripjourney.com/episodes/interview-eva-marta" } },
+    { name:"Irina", city:"Hannover", country:"Germany", style:"High heels, Frame Up", IG:"https://www.instagram.com/kaz.irk", episode:{ number:"12", link:"https://www.stripjourney.com/episodes/interview-irina" } },
+    { name:"Randa", city:"Helsinki", country:"Finland", style:"Floorwork acrobatics", IG:"https://www.instagram.com/morella.dance", coordinates:[60.1674881,24.9427473], episode:{ number:"13", link:"https://www.stripjourney.com/episodes/interview-randa" } },
+    { name:"Tanya", city:"New Jersey", country:"USA", style:"Frame Up", IG:"https://www.instagram.com/tanya_phoenix", coordinates:[40.0757384,-74.4041622], episode:{ number:"14", link:"https://www.stripjourney.com/episodes/interview-tanya" } },
+    { name:"Alina Boshchenko", city:"Amsterdam", country:"Netherlands", style:"Frame Up", IG:"https://www.instagram.com/lesslyrics_", episode:{ number:"16", link:"https://www.stripjourney.com/episodes/interview-alina-b" } },
+    { name:"Iliana", city:"Plovdiv", country:"Bulgaria", style:"Strip, Exotic Pole", IG:"https://www.instagram.com/i.bancheva", coordinates:[42.1418541,24.7499297] },
+    { name:"Yasha", city:"Prague", country:"Czech Republic", style:"Frame Up", IG:"https://www.instagram.com/yasha_vasha", episode:{ number:"20", link:"https://www.stripjourney.com/episodes/interview-yasha" }, website:"https://www.instagram.com/ultima.thule.art" },
+    { name:"Liza Makarova", city:"Prague", country:"Czech Republic", style:"Frame Up", IG:"https://www.instagram.com/foxmakarova", episode:{ number:"23", link:"https://www.stripjourney.com/episodes/episode23-liza-makarova" } },
+    { name:"Mia Lê", city:"Helsinki", country:"Finland", style:"Strip", IG:"https://www.instagram.com/mialenotlee" },
+    { name:"Kateryna", city:"Stuttgart", country:"Germany", style:"Strip", IG:"https://www.instagram.com/ktgbrv", coordinates:[48.7784485,9.1800132] },
+    { name:"Mariia Mariutina", city:"Belgrade", country:"Serbia", style:"Frame Up Strip", IG:"https://www.instagram.com/masha_mahich", coordinates:[44.8178131,20.4568974], episode:{ number:"21", link:"https://www.stripjourney.com/episodes/interview-mariia-mariutina" } },
+    { name:"Varya Balashova", city:"Bremen", country:"Germany", style:"Strip, jazz funk, high heels", IG:"https://www.instagram.com/_thundery_", coordinates:[53.0758196,8.8071646] },
+    { name:"Alisa", city:"Budapest", country:"Hungary", style:"Frame Up Strip", IG:"https://www.instagram.com/alisa.dubolari", coordinates:[47.4978789,19.0402383], website:"https://www.instagram.com/skydance.team" },
+    { name:"Nata Bella", city:"Manchester", country:"United Kingdom", style:"Strip, Exotic High Heels ", IG:"https://www.instagram.com/natabella.artist", coordinates:[53.4794892,-2.2451148], website:"https://www.instagram.com/natabellaclub" },
+    { name:"Nata Bella", city:"Liverpool", country:"United Kingdom", style:"Strip, Exotic High Heels ", IG:"https://www.instagram.com/natabella.artist", coordinates:[53.4084,-2.9916], website:"https://www.instagram.com/natabellaclub" },
+    { name:"Alexandra Andries", city:"Chisinau", country:"Moldova", style:"Frame Up Strip", IG:"https://www.instagram.com/_alexandra_andriesh_", coordinates:[47.0245117,28.8322923], website:"https://www.instagram.com/skydance.md" },
+    { name:"Anna Lapchenko", city:"Prague", country:"Czech Republic", style:"Frame Up Strip", IG:"https://www.instagram.com/lapchenkoanna" },
+    { name:"Anna Solokhina", city:"Wrocław", country:"Poland", style:"Frame Up Strip", IG:"https://www.instagram.com/anna.solokhina1", coordinates:[51.1089776,17.0326689] },
+    { name:"Svetlana Hudabašjana", city:"Riga", country:"Latvia", style:"Frame Up Strip", IG:"https://www.instagram.com/_svetlana_1228" },
+    { name:"Tatiana Pawlak", city:"Poznań", country:"Poland", style:"Strip", IG:"https://www.instagram.com/tatiana_pawlak", coordinates:[52.4082663,16.9335199], episode:{ number:"18", link:"https://www.stripjourney.com/episodes/interview-tatiana" } },
+    { name:"Tanja", city:"Munich", country:"Germany", style:"Frame Up, High Heels, Floorwork", IG:"https://www.instagram.com/bogushtanja", coordinates:[48.1371079,11.5753822] },
+    { name:"Olga Malakhova", city:"Thessaloniki", country:"Greece", style:"Frame Up Strip", IG:"https://www.instagram.com/lomovueva", coordinates:[40.6403167,22.9352716] },
+    { name:"Anna Slide", city:"Frankfurt", country:"Germany", style:"Frame Up, High heels", IG:"https://www.instagram.com/annaslide", coordinates:[50.1106444,8.6820917], episode:{ number:"19", link:"https://www.stripjourney.com/episodes/interview-anna-slide" } },
+    { name:"Yevgeniya", city:"Hamburg", country:"Germany", style:"Frame up , Latin Dance", IG:"https://www.instagram.com/yevgeniyaa.sch" },
+    { name:"Vivian Voss - Experimental EROTICA", city:"Athens", country:"Greece", style:"Strip, Contemporary, Ballet, Experimental", IG:"https://www.instagram.com/vivianvoss_", coordinates:[37.9755648,23.7348324], website:"https://www.instagram.com/experimental.erotica", episode:{ number:"24", link:"https://www.stripjourney.com/episodes/episode24-vivian-voss" } },
+    { name:"Maria", city:"Zürich", country:"Switzerland", style:"Frame Up", IG:"https://www.instagram.com/the_walking_muse", coordinates:[47.3744489,8.5410422], episode:{ number:"22", link:"https://www.stripjourney.com/episodes/episode22-maria" } },
+    { name:"Viktoryia Kalashnikava", city:"Warsaw", country:"Poland", style:"Frame up strip", IG:"https://www.instagram.com/bodyofyourparty", coordinates:[52.2319581,21.0067249] },
+    { name:"Hanna Tapunova", city:"Lublin", country:"Poland", style:"Frame up strip", IG:"https://www.instagram.com/tapunovaa", coordinates:[51.250559,22.5701022] },
+    { name:"Alena", city:"Barrie", country:"Canada", style:"Strip", IG:"https://www.instagram.com/feelme.danceschool", coordinates:[44.3893208,-79.6901302] },
+    { name:"Margarita Shtrigel", city:"Helsinki", country:"Finland", style:"Frame Up Strip", IG:"https://www.instagram.com/msh_dance" },
+    { name:"Frame up strip Cyprus", city:"Limassol", country:"Cyprus", style:"Frame Up Strip", IG:"https://www.instagram.com/apotheos.dance", coordinates:[34.6852901,33.0332657] },
+    { name:"Anna Strok", city:"Warsaw", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/anna.strok_dance", coordinates:[52.2319581,21.0067249], website:"https://www.instagram.com/cablook_dance", episode:{ number:"25", link:"https://www.stripjourney.com/episodes/episode25-anna-strok"} },     
+    { name:"Osnapitsalisa", city:"Lodz", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/osnapitsalisa", coordinates:[51.7687323,19.4569911] }
+  ];
 
-    // --------------------------------
-    // 2) Build city groups (city+country)
-    // --------------------------------
-    const cityGroups = {}; // key -> {city, country, coords:[lat,lng], teachers:[...]}
-
-    function cityKey(t) {
-      return `${t.city.trim().toLowerCase()}|${t.country.trim().toLowerCase()}`;
+  // ---- group cities (first entry keeps coords) ----
+  const cityGroups = {};
+  const cityKey = t => `${t.city.trim().toLowerCase()}|${t.country.trim().toLowerCase()}`;
+  for (const t of teachers) {
+    const key = cityKey(t);
+    if (!cityGroups[key]) {
+      cityGroups[key] = { city:t.city.trim(), country:t.country.trim(), coords:(t.coordinates && t.coordinates.length===2) ? t.coordinates.slice() : null, teachers:[] };
     }
+    cityGroups[key].teachers.push(t);
+  }
 
-    for (const t of teachers) {
-      const key = cityKey(t);
-      if (!cityGroups[key]) {
-        cityGroups[key] = {
-          city: t.city.trim(),
-          country: t.country.trim(),
-          coords: (t.coordinates && t.coordinates.length === 2) ? t.coordinates.slice() : null, // first entry's coords only
-          teachers: []
-        };
-      }
-      cityGroups[key].teachers.push(t);
+  // ---- map ----
+  const map = L.map('map', { worldCopyJump:true }).setView([20,0], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19 }).addTo(map);
+
+  const markerLayer = L.layerGroup().addTo(map);
+  const markersByKey = {};
+
+  const makeCityPopupHTML = (g) => {
+    const header = `<strong>${g.city}, ${g.country}</strong>`;
+    const list = g.teachers.map(t => {
+      const web = t.website ? `<a href="${t.website}" target="_blank" class="website-link">Website</a> · ` : '';
+      const ig  = `<a href="${t.IG}" target="_blank" class="social-link">IG</a>`;
+      const ep  = t.episode ? ` · <a href="${t.episode.link}" target="_blank" class="episode-link">Episode ${t.episode.number}</a>` : '';
+      return `<li><strong>${t.name}</strong> — <span class="muted">${t.style || ''}</span><br>${web}${ig}${ep}</li>`;
+    }).join('');
+    return `${header}<ul style="padding-left:18px;margin:6px 0;">${list}</ul>`;
+  };
+
+  const markerStyle = (g) => {
+    const multi = g.teachers.length > 1;
+    const color = getComputedStyle(document.documentElement)
+                 .getPropertyValue(multi ? '--multi' : '--single').trim();
+    return { radius:8, color, weight:2, fillColor:color, fillOpacity:0.9 };
+  };
+
+  for (const [key, group] of Object.entries(cityGroups)) {
+    if (!group.coords) continue;
+    const m = L.circleMarker(group.coords, markerStyle(group))
+      .bindPopup(makeCityPopupHTML(group), { maxWidth: 340 })
+      .addTo(markerLayer);
+    markersByKey[key] = m;
+  }
+
+  // fit bounds
+  const all = Object.values(markersByKey);
+  if (all.length) {
+    const b = L.latLngBounds(all.map(m => m.getLatLng()));
+    map.fitBounds(b.pad(0.2));
+  }
+
+  // ---- list + search ----
+  const teacherCards = document.getElementById('teacher-cards');
+  const listTitle = document.getElementById('list-title');
+  const searchInput = document.getElementById('sj-search');
+
+  function renderCards(arr){
+    teacherCards.innerHTML = '';
+    if (!arr.length) { teacherCards.innerHTML = '<p class="muted">No teachers match.</p>'; return; }
+    for (const t of arr) {
+      const card = document.createElement('div');
+      card.className = 'teacher-card';
+      card.innerHTML = `
+        <h3>${t.name}</h3>
+        <p><strong>City:</strong> ${t.city}</p>
+        <p><strong>Country:</strong> ${t.country}</p>
+        <p><strong>Style:</strong> ${t.style || ''}</p>
+        <p class="links">
+          ${t.website ? `<a href="${t.website}" target="_blank" class="website-link">Website</a>` : ''}
+          <a href="${t.IG}" target="_blank" class="social-link">IG</a>
+          ${t.episode ? `<a href="${t.episode.link}" target="_blank" class="episode-link">Episode ${t.episode.number}</a>` : ''}
+        </p>`;
+      teacherCards.appendChild(card);
     }
+  }
 
-    // ----------------------
-    // 3) Leaflet map + pins
-    // ----------------------
-    const map = L.map('map', { worldCopyJump: true }).setView([20, 0], 2);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
-
-    const markerLayer = L.layerGroup().addTo(map);
-    const markersByKey = {}; // key -> marker
-
-    function makeCityPopupHTML(group) {
-      const header = `<strong>${group.city}, ${group.country}</strong>`;
-      const list = group.teachers.map(t => {
-        const web = t.website ? `<a href="${t.website}" target="_blank" class="website-link">Website</a> · ` : '';
-        const ig  = `<a href="${t.IG}" target="_blank" class="social-link">IG</a>`;
-        const ep  = t.episode ? ` · <a href="${t.episode.link}" target="_blank" class="episode-link">Episode ${t.episode.number}</a>` : '';
-        return `<li><strong>${t.name}</strong> — <span class="muted">${t.style || ''}</span><br>${web}${ig}${ep}</li>`;
-      }).join('');
-      return `${header}<ul style="padding-left:18px;margin:6px 0;">${list}</ul>`;
-    }
-
-    function markerStyle(group) {
-      const multi = group.teachers.length > 1;
-      const color = multi
-        ? getComputedStyle(document.documentElement).getPropertyValue('--multi').trim()
-        : getComputedStyle(document.documentElement).getPropertyValue('--single').trim();
-      return { radius: 8, color, weight: 2, fillColor: color, fillOpacity: 0.9 };
-    }
-
-    function addMarkers() {
-      markerLayer.clearLayers();
-      for (const [key, group] of Object.entries(cityGroups)) {
-        if (!group.coords) continue; // skip groups that somehow lack coords
-        const m = L.circleMarker(group.coords, markerStyle(group))
-          .bindPopup(makeCityPopupHTML(group), { maxWidth: 340 })
-          .addTo(markerLayer);
-        m._sjKey = key; // attach for filtering
-        markersByKey[key] = m;
-      }
-    }
-    addMarkers();
-
-    // Fit initial bounds to all markers (nicer start)
-    (function fitAll() {
-      const all = Object.values(markersByKey);
-      if (all.length) {
-        const b = L.latLngBounds(all.map(m => m.getLatLng()));
-        map.fitBounds(b.pad(0.2));
-      }
-    })();
-
-    // ---------------------------------------
-    // 4) List rendering (cards) + viewport sync
-    // ---------------------------------------
-    const teacherCards = document.getElementById('teacher-cards');
-    const listTitle = document.getElementById('list-title');
-
-    function renderCards(teacherArray) {
-      teacherCards.innerHTML = '';
-      if (!teacherArray.length) {
-        teacherCards.innerHTML = '<p class="muted">No teachers match.</p>';
-        return;
-      }
-      for (const t of teacherArray) {
-        const card = document.createElement('div');
-        card.className = 'teacher-card';
-        card.innerHTML = `
-          <h3>${t.name}</h3>
-          <p><strong>City:</strong> ${t.city}</p>
-          <p><strong>Country:</strong> ${t.country}</p>
-          <p><strong>Style:</strong> ${t.style || ''}</p>
-          <p class="links">
-            ${t.website ? `<a href="${t.website}" target="_blank" class="website-link">Website</a>` : ''}
-            <a href="${t.IG}" target="_blank" class="social-link">IG</a>
-            ${t.episode ? `<a href="${t.episode.link}" target="_blank" class="episode-link">Episode ${t.episode.number}</a>` : ''}
-          </p>
-        `;
-        teacherCards.appendChild(card);
-      }
-    }
-
-    function teachersInView() {
-      const bounds = map.getBounds();
-      const visible = [];
-      for (const [key, group] of Object.entries(cityGroups)) {
-        const marker = markersByKey[key];
-        if (!marker) continue;
-        const latlng = marker.getLatLng();
-        if (bounds.contains(latlng)) visible.push(...group.teachers);
-      }
-      // Sort by city then name for readability
-      visible.sort((a,b) => (a.city || '').localeCompare(b.city || '') || (a.name || '').localeCompare(b.name || ''));
-      return visible;
-    }
-
-    function updateListForViewport() {
-      listTitle.textContent = 'Teachers in view';
-      renderCards(teachersInView());
-    }
-
-    map.on('moveend', () => {
-      if (!searchActive()) updateListForViewport();
-    });
-
-    // Initial list
-    updateListForViewport();
-
-    // ------------------------
-    // 5) Search (filter/map)
-    // ------------------------
-    const searchInput = document.getElementById('search');
-
-    function searchActive() {
-      return searchInput.value.trim().length > 0;
-    }
-
-    function searchableString(t) {
-      return [
-        t.name || '',
-        t.city || '',
-        t.country || '',
-        t.style || ''
-      ].join(' ').toLowerCase();
-    }
-
-    function filterTeachers(query) {
-      const q = query.toLowerCase();
-      return teachers.filter(t => searchableString(t).includes(q));
-    }
-
-    function setMarkersVisibilityByTeacherSet(setOfKeys) {
-      for (const [key, marker] of Object.entries(markersByKey)) {
-        if (setOfKeys.has(key)) {
-          marker.setStyle({ opacity: 1, fillOpacity: 0.9 });
-          if (!markerLayer.hasLayer(marker)) marker.addTo(markerLayer);
-        } else {
-          marker.setStyle({ opacity: 0.15, fillOpacity: 0.15 });
-          // keep them on map but faded so user keeps context
-        }
-      }
-    }
-
-    function keysForTeachers(ts) {
-      const keys = new Set();
-      for (const t of ts) keys.add(cityKey(t));
-      return keys;
-    }
-
-    function fitToTeacherKeys(keys) {
-      const arr = [...keys].map(k => markersByKey[k]).filter(Boolean);
-      if (!arr.length) return;
-      const b = L.latLngBounds(arr.map(m => m.getLatLng()));
-      map.fitBounds(b.pad(0.2));
-    }
-
-    function handleSearch() {
-      const q = searchInput.value.trim();
-      if (!q) {
-        // Clear search -> back to viewport behavior
-        listTitle.textContent = 'Teachers in view';
-        setMarkersVisibilityByTeacherSet(new Set(Object.keys(markersByKey))); // all visible (unfaded)
-        for (const m of Object.values(markersByKey)) m.setStyle({ opacity: 1, fillOpacity: 0.9 });
-        updateListForViewport();
-        return;
-      }
-      const results = filterTeachers(q);
-      const resultKeys = keysForTeachers(results);
-      listTitle.textContent = `Search results (${results.length})`;
-      renderCards(results);
-      setMarkersVisibilityByTeacherSet(resultKeys);
-      fitToTeacherKeys(resultKeys);
-    }
-
-    searchInput.addEventListener('input', handleSearch);
-
-    // ------------------------
-    // 6) Accessibility tweak:
-    // open city popup when clicking a card (optional)
-    // ------------------------
-    teacherCards.addEventListener('click', (e) => {
-      const h3 = e.target.closest('.teacher-card')?.querySelector('h3');
-      if (!h3) return;
-      const name = h3.textContent.trim();
-      // If multiple teachers share the same name across cities,
-      // this picks the first match. For absolute accuracy,
-      // consider giving each card a data-index and using it here.
-      const t = teachers.find(x => x.name === name);
-      if (!t) return;
-      const key = cityKey(t);
+  function teachersInView() {
+    const bounds = map.getBounds();
+    const visible = [];
+    for (const [key, group] of Object.entries(cityGroups)) {
       const marker = markersByKey[key];
-      if (marker) {
-        marker.openPopup();
-        map.panTo(marker.getLatLng());
-      }
-    });
-  </script>
-</body>
-</html>
+      if (!marker) continue;
+      if (bounds.contains(marker.getLatLng())) visible.push(...group.teachers);
+    }
+    visible.sort((a,b)=> (a.city||'').localeCompare(b.city||'') || (a.name||'').localeCompare(b.name||''));
+    return visible;
+  }
+
+  function updateListForViewport(){
+    listTitle.textContent = 'Teachers in view';
+    renderCards(teachersInView());
+  }
+
+  map.on('moveend', () => {
+    if (!searchInput.value.trim()) updateListForViewport();
+  });
+  updateListForViewport();
+
+  function searchableString(t){ return [t.name||'',t.city||'',t.country||'',t.style||''].join(' ').toLowerCase(); }
+  function filterTeachers(q){ q=q.toLowerCase(); return teachers.filter(t=>searchableString(t).includes(q)); }
+  function keysForTeachers(ts){ const s=new Set(); for(const t of ts) s.add(cityKey(t)); return s; }
+  function setMarkersVisibility(keys){
+    for(const [key, marker] of Object.entries(markersByKey)){
+      if(keys.has(key)){ marker.setStyle({opacity:1, fillOpacity:0.9}); }
+      else { marker.setStyle({opacity:0.15, fillOpacity:0.15}); }
+    }
+  }
+  function fitToKeys(keys){
+    const arr=[...keys].map(k=>markersByKey[k]).filter(Boolean);
+    if(!arr.length) return;
+    const b=L.latLngBounds(arr.map(m=>m.getLatLng()));
+    map.fitBounds(b.pad(0.2));
+  }
+
+  searchInput.addEventListener('input', ()=>{
+    const q = searchInput.value.trim();
+    if(!q){
+      listTitle.textContent = 'Teachers in view';
+      setMarkersVisibility(new Set(Object.keys(markersByKey)));
+      for (const m of Object.values(markersByKey)) m.setStyle({opacity:1, fillOpacity:0.9});
+      updateListForViewport();
+      return;
+    }
+    const results = filterTeachers(q);
+    const keys = keysForTeachers(results);
+    listTitle.textContent = `Search results (${results.length})`;
+    renderCards(results);
+    setMarkersVisibility(keys);
+    fitToKeys(keys);
+  });
+
+  // click card -> open popup
+  teacherCards.addEventListener('click', (e)=>{
+    const h3 = e.target.closest('.teacher-card')?.querySelector('h3');
+    if (!h3) return;
+    const t = teachers.find(x => x.name === h3.textContent.trim());
+    if (!t) return;
+    const key = cityKey(t);
+    const marker = markersByKey[key];
+    if (marker) { marker.openPopup(); map.panTo(marker.getLatLng()); }
+  });
+});
+</script>
