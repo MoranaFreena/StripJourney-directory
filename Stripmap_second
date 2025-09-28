@@ -88,7 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
     { name:"Margarita Shtrigel", city:"Helsinki", country:"Finland", style:"Frame Up Strip", IG:"https://www.instagram.com/msh_dance" },
     { name:"Frame up strip Cyprus", city:"Limassol", country:"Cyprus", style:"Frame Up Strip", IG:"https://www.instagram.com/apotheos.dance", coordinates:[34.6852901,33.0332657] },
     { name:"Anna Strok", city:"Warsaw", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/anna.strok_dance", coordinates:[52.2319581,21.0067249], website:"https://www.instagram.com/cablook_dance", episode:{ number:"25", link:"https://www.stripjourney.com/episodes/episode25-anna-strok"} },     
-    { name:"Osnapitsalisa", city:"Lodz", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/osnapitsalisa", coordinates:[51.7687323,19.4569911] }
+    { name:"Anastasia Djun", city:"Berlin", country:"Germany", style:"Frame Up, high heels", IG:"https://www.instagram.com/ddjunna/", coordinates:[52.5173885,13.3951309], episode:{ number:"26", link:"https://www.stripjourney.com/episodes/episode26-djuna"} },    
+{ name:"Osnapitsalisa", city:"Lodz", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/osnapitsalisa", coordinates:[51.7687323,19.4569911] }
   ];
 
   // ---- group cities (first entry keeps coords) ----
