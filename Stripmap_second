@@ -88,7 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
     { name:"Margarita Shtrigel", city:"Helsinki", country:"Finland", style:"Frame Up Strip", IG:"https://www.instagram.com/msh_dance" },
     { name:"Frame up strip Cyprus", city:"Limassol", country:"Cyprus", style:"Frame Up Strip", IG:"https://www.instagram.com/apotheos.dance", coordinates:[34.6852901,33.0332657] },
     { name:"Anna Strok", city:"Warsaw", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/anna.strok_dance", coordinates:[52.2319581,21.0067249], website:"https://www.instagram.com/cablook_dance", episode:{ number:"25", link:"https://www.stripjourney.com/episodes/episode25-anna-strok"} },     
-    { name:"Anastasia Djun", city:"Berlin", country:"Germany", style:"Frame Up, high heels", IG:"https://www.instagram.com/ddjunna/", coordinates:[52.5173885,13.3951309], episode:{ number:"26", link:"https://www.stripjourney.com/episodes/episode26-djuna"} },    
+    { name:"Anastasia Djun", city:"Berlin", country:"Germany", style:"Frame Up, high heels", IG:"https://www.instagram.com/ddjunna/", coordinates:[52.5173885,13.3951309], episode:{ number:"26", link:"https://www.stripjourney.com/episodes/episode26-djuna"} },   
+ { name:"Yuliana Zolotova", city:"Novi Sad", country:"Serbia", style:"Frame Up Strip, high heels", IG:"https://www.instagram.com/yuliana_zolotova/", coordinates:[45.2551338,19.8451756], episode:{ number:"27", link:"https://www.stripjourney.com/episodes/episode27-yuliana-zolotova" } },
+ { name:"Tatiana Filipenko", city:"Ljubljana", country:"Slovenia", style:"Frame Up Strip", IG:"https://www.instagram.com/_filipena_/", coordinates:[46.0500268,14.5069289], episode:{ number:"28", link:"https://www.stripjourney.com/episodes/episode28-tatiana-filipenko" } },
+ { name:"Daria Gendina", city:"Vienna", country:"Austria", style:"Frame Up Strip", IG:"https://www.instagram.com/gendosska/", coordinates:[48.2083537,16.3725042], episode:{ number:"29", link:"https://www.stripjourney.com/episodes/episode29-daria-gendina" } },
 { name:"Osnapitsalisa", city:"Lodz", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/osnapitsalisa", coordinates:[51.7687323,19.4569911] }
   ];
 
