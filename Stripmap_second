@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
  { name:"Tatiana Filipenko", city:"Ljubljana", country:"Slovenia", style:"Frame Up Strip", IG:"https://www.instagram.com/_filipena_/", coordinates:[46.0500268,14.5069289], episode:{ number:"28", link:"https://www.stripjourney.com/episodes/episode28-tatiana-filipenko" } },
  { name:"Daria Gendina", city:"Vienna", country:"Austria", style:"Frame Up Strip", IG:"https://www.instagram.com/gendosska/", coordinates:[48.2083537,16.3725042], episode:{ number:"29", link:"https://www.stripjourney.com/episodes/episode29-daria-gendina" } },
 { name:"Mariia Ratner", city:"Berlin", country:"Germany", style:"Frame up strip, Commercial, High Heels, Hip-Hop", IG:"https://www.instagram.com/ratner_ratner_" },
+ { name:"Polina Petropavlovskaia", city:"Barcelona", country:"Spain", style:"Frame Up", IG:"https://www.instagram.com/p_petropavlovskaya/", coordinates:[41.3825802,2.177073], website:"https://www.instagram.com/frameup_bcn", episode:{ number:"30", link:"https://www.stripjourney.com/episodes/episode30-polina"} },  
 { name:"Osnapitsalisa", city:"Lodz", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/osnapitsalisa", coordinates:[51.7687323,19.4569911] }
   ];
 
