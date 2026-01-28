@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 { name:"Mariia Ratner", city:"Berlin", country:"Germany", style:"Frame up strip, Commercial, High Heels, Hip-Hop", IG:"https://www.instagram.com/ratner_ratner_" },
 { name:"Nasti Hinak", city:"Vienna", country:"Austria", style:"Frame up", IG:"https://www.instagram.com/nasti_hinak", website:"https://www.instagram.com/frameup_austria" },
 { name:"Nasti Hinak", city:"Brno", country:"Czech Republic", style:"Frame up", IG:"https://www.instagram.com/nasti_hinak", coordinates:[49.1922443,16.6113382], website:"https://www.instagram.com/frame_up_nation" },
+{ name: "Sofia Hristova", city:"Sofia", country:"Bulgaria", style:"Exotic Pole, Strip, Experimental, Contemporary", IG:"https://www.instagram.com/sofia.hrstova/", coordinates:[42.6977028,23.3217359] },
  { name:"Polina Petropavlovskaia", city:"Barcelona", country:"Spain", style:"Frame Up", IG:"https://www.instagram.com/p_petropavlovskaya/", coordinates:[41.3825802,2.177073], website:"https://www.instagram.com/frameup_bcn", episode:{ number:"30", link:"https://www.stripjourney.com/episodes/episode30-polina"} },  
 { name:"Osnapitsalisa", city:"Lodz", country:"Poland", style:"Frame Up", IG:"https://www.instagram.com/osnapitsalisa", coordinates:[51.7687323,19.4569911] }
   ];
