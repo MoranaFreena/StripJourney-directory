@@ -1,0 +1,161 @@
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<style>
+  #events-map {
+    height: 75vh;
+    min-height: 520px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .event-note {
+    background: #fff8dc;
+    border: 1px solid #c9b37a;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font: 12px/1.2 Georgia, serif;
+    color: #3a2f1b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    white-space: nowrap;
+  }
+
+  .leaflet-popup-content {
+    margin: 10px 12px;
+    font-size: 14px;
+  }
+
+  .leaflet-popup-content ul {
+    margin: 8px 0 0 18px;
+    padding: 0;
+  }
+
+  .leaflet-popup-content li {
+    margin: 0 0 8px 0;
+  }
+</style>
+
+<div id="events-map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const events = [
+    {
+      name: "Tsok Tsok Contest",
+      date: "2026-03-13 to 2026-03-15",
+      url: "https://www.instagram.com/tsok.tsok.contest/",
+      city: "Riga",
+      lat: 56.9496,
+      lng: 24.1052
+    },
+    {
+      name: "Frame Up Weekend Vol. 7",
+      date: "2026-03-27 to 2026-03-28",
+      url: "https://www.frameupstrip.cz",
+      city: "Prague",
+      lat: 50.0755,
+      lng: 14.4378
+    },
+    {
+      name: "Stage 18+ Dancing Contest",
+      date: "2026-03-29",
+      url: "https://www.frameupstrip.cz/contest",
+      city: "Prague",
+      lat: 50.0755,
+      lng: 14.4378
+    },
+    {
+      name: "Enter Calibration",
+      date: "2026-04-17",
+      url: "https://www.instagram.com/enter.calibration/",
+      city: "Amsterdam",
+      lat: 52.3676,
+      lng: 4.9041
+    },
+    {
+      name: "Frame Up Strip Weekend Vol. 3",
+      date: "2026-04-25 to 2026-04-26",
+      url: "https://www.instagram.com/p/DVOURY_DWKE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      city: "Belgrade",
+      lat: 44.7866,
+      lng: 20.4489
+    },
+    {
+      name: "Metro Champ",
+      date: "2026-07-25 to 2026-07-26",
+      url: "https://www.instagram.com/metro_champ/",
+      city: "Warsaw",
+      lat: 52.2297,
+      lng: 21.0122
+    },
+    {
+      name: "Santa Pecadora Dance Camp 2026",
+      date: "2026-09-13 to 2026-09-18",
+      url: "https://www.instagram.com/p/DUjErR_jWJ8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      city: "Barcelona",
+      lat: 41.3851,
+      lng: 2.1734
+    }
+  ];
+
+  const map = L.map("events-map", { scrollWheelZoom: true }).setView([54, 15], 4);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: "&copy; OpenStreetMap contributors"
+  }).addTo(map);
+
+  // Group events by coordinates so one marker can hold multiple events
+  const grouped = {};
+  events.forEach((e) => {
+    const key = `${e.lat},${e.lng}`;
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(e);
+  });
+
+  // Parse first date from "YYYY-MM-DD" or "YYYY-MM-DD to YYYY-MM-DD"
+  function getStartDateMs(dateStr) {
+    const start = dateStr.split(" to ")[0].trim();
+    return new Date(start).getTime();
+  }
+
+  Object.entries(grouped).forEach(([key, list]) => {
+    const [lat, lng] = key.split(",").map(Number);
+
+    // Sort events by date (earliest first)
+    const sortedList = [...list].sort((a, b) => getStartDateMs(a.date) - getStartDateMs(b.date));
+
+    const label =
+      sortedList.length > 1
+        ? `${sortedList[0].city} (${sortedList.length})`
+        : sortedList[0].city;
+
+    const icon = L.divIcon({
+      className: "",
+      html: `<div class="event-note">${label}</div>`,
+      iconSize: [110, 28],
+      iconAnchor: [55, 14]
+    });
+
+    const popupHtml = `
+      <strong>${sortedList[0].city}</strong>
+      <ul>
+        ${sortedList
+          .map(
+            (ev) => `
+          <li>
+            <div><strong>${ev.name}</strong></div>
+            <div>${ev.date}</div>
+            <a href="${ev.url}" target="_blank" rel="noopener">Event link</a>
+          </li>
+        `
+          )
+          .join("")}
+      </ul>
+    `;
+
+    L.marker([lat, lng], { icon }).addTo(map).bindPopup(popupHtml);
+  });
+</script>
